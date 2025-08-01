@@ -1,0 +1,174 @@
+/*-------------------------------------Geral-----------------------------------------------------------------*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  cursor: url('https://img.icons8.com/3d-fluency/50/finger-and-thumb.png') 16 16, auto;
+  padding-top: 100px;
+  background: linear-gradient(to right, #0d2a4a, #318f8f);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-size: 17px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+  background: linear-gradient(to right, #0d2a4a, #318f8f);
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+}
+
+h1 {
+  margin-left: 35px;
+  color: #ffffff;
+  font-size: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+a, button, .menu {
+  cursor: url('https://img.icons8.com/3d-fluency/50/nui2--v5.png') 16 16, pointer;
+}
+
+ul {
+  color: #ffffff;
+  font-size: 40px;
+  padding: 20px;
+  margin-left: 40px;
+}
+
+main {
+  padding: 50px;
+}
+
+main li {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+/*-------------------------------------Botão do Menu-----------------------------------------------------------------*/
+.menu {
+  display: block;
+  font-size: 90px;
+  background: none;
+  border: none;
+  color: white;
+  transition: transform 0.3s ease-in-out;
+  z-index: 20;
+  margin-left: auto;
+}
+
+.menu.active {
+  transform: rotate(90deg);
+}
+
+/*-------------------------------------Links do Menu-----------------------------------------------------------------*/
+
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+  flex-direction: column;
+  background: linear-gradient(to right, #0d2a4a, #318f8f);
+  position: fixed;
+  top: 0;
+  right: 50px;
+  width: 1000px;
+  height: 100%;
+  padding-top: 66px;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
+  transition: right 0.4s ease-in-out;
+  z-index: 15;
+}
+
+.links.active {
+  display: flex;
+  right: 0;
+}
+
+.links li {
+  text-align: left;
+  border-bottom: 1px solid #555;
+  opacity: 0;
+  animation: fadeIn 0.9s forwards;
+}
+
+.links a {
+  color: white;
+  text-decoration: none;
+  font-size: 150px;
+  transition: color 0.3s ease-in-out;
+}
+
+.links a:hover {
+  color: #00bcd4;
+}
+
+/*-------------------------------------Parte das Frames-----------------------------------------------------------------*/
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/*-------------------------------------Parte do Jogo-----------------------------------------------------------------*/
+
+.container-jogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  background-color: #1a2033;
+  border: 4px solid #eee;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+#pontuacao {
+  font-size: 2.5em;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px #222;
+}
+
+#mensagem-inicio {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 1.5em;
+  cursor: pointer;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+#mensagem-inicio:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
