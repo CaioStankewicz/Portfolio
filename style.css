@@ -9,7 +9,7 @@
 body {
   cursor: url('https://img.icons8.com/3d-fluency/50/finger-and-thumb.png') 16 16, auto;
   padding-top: 100px;
-  background: linear-gradient(to right, #0d2a4a, #318f8f);
+  background: linear-gradient(to right, #000000, #0a192f);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -22,12 +22,15 @@ header {
   left: 0;
   width: 100%;
   z-index: 1001;
-  background: linear-gradient(to right, #0d2a4a, #318f8f);
-  padding: 10px 15px;
+  background: linear-gradient(to right, #000000, #0a192f);
+  padding: 19px 19px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
+  border-bottom: 1px solid #ffffff;
 }
 
 h1 {
@@ -39,15 +42,58 @@ h1 {
   text-overflow: ellipsis;
 }
 
-a, button, .menu {
+h2 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 60px;
+
+}
+h3 {
+  color: #ffffff;
+  font-size: 40px;
+
+}
+
+div a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 20px;
+  font-size: 30px;
+}
+
+div a:hover {
+  text-decoration: underline;
+}
+
+a,
+button,
+.menu {
   cursor: url('https://img.icons8.com/3d-fluency/50/nui2--v5.png') 16 16, pointer;
+}
+
+.boxProjetos {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 20px;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.projeto {
+  max-width: 800px;
+}
+
+
+.box {
+  padding: 60px;
 }
 
 ul {
   color: #ffffff;
   font-size: 40px;
   padding: 20px;
-  margin-left: 40px;
+  margin-left: 30px;
 }
 
 main {
@@ -57,12 +103,15 @@ main {
 main li {
   opacity: 0;
   animation: fadeIn 0.5s forwards;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ffffff;
 }
 
 /*-------------------------------------Botão do Menu-----------------------------------------------------------------*/
 .menu {
   display: block;
-  font-size: 90px;
+  font-size: 70px;
   background: none;
   border: none;
   color: white;
@@ -83,14 +132,13 @@ main li {
   padding: 0;
   display: none;
   flex-direction: column;
-  background: linear-gradient(to right, #0d2a4a, #318f8f);
+  background: linear-gradient(to right, #000000, #0a192f);
   position: fixed;
   top: 0;
   right: 50px;
-  width: 1000px;
+  width: 800px;
   height: 100%;
-  padding-top: 66px;
-  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
+  padding-top: 60px;
   transition: right 0.4s ease-in-out;
   z-index: 15;
 }
@@ -129,6 +177,28 @@ main li {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes subirAparecer {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes desvanecer {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
   }
 }
 
@@ -171,4 +241,35 @@ canvas {
 
 #mensagem-inicio:hover {
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+/*-------------------------------------Aparecer Nome Começo-----------------------------------------------------------------*/
+.nome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.letra.espaco {
+  margin-right: 0.5em;
+}
+
+.letra {
+  font-size: 190px;
+  font-weight: bold;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(50px);
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  transition: opacity 0.5s ease-out;
+}
+
+.letra.aparecer {
+  animation-name: subirAparecer;
+}
+
+.letra.desaparecer {
+  animation-name: desvanecer;
 }
